@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-200 to-blue-300"
-  >
+  <div class="flex items-center justify-center min-h-screen">
     <div class="card">
       <h2 class="card-header">User Score</h2>
       <div class="card-body mb-4">

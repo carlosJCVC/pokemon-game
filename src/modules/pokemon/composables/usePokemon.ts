@@ -1,14 +1,16 @@
-import { computed, onBeforeMount, onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import confetti from 'canvas-confetti'
 import { GameStatus } from '../../core/enums/game-status'
 import { pokemonApi } from '../api/pokemonApi'
 import type { PokemonListResponse } from '../interfaces/PokemonListResponse'
 import type { Pokemon } from '../interfaces/Pokemon'
+import type { Character } from '@/modules/dbz/interfaces/Character'
 
 export const usePokemon = () => {
   const status = ref<GameStatus>(GameStatus.Playing)
-  const pokemons = ref<Pokemon[]>([])
-  const pokemonOptions = ref<Pokemon[]>([])
+  const pokemons = ref<Character[]>([])
+  const pokemonOptions = ref<Character[]>([])
+  const score = ref(0)
 
   const selectedPokemon = computed(() => {
     if (pokemonOptions.value.length === 0) return undefined
@@ -20,7 +22,7 @@ export const usePokemon = () => {
 
   const isLoading = computed(() => pokemons.value.length === 0)
 
-  const getPokemons = async (): Promise<Pokemon[]> => {
+  const getPokemons = async (): Promise<Character[]> => {
     const limit = 151
     const response = await pokemonApi.get<PokemonListResponse>(`/?limit=${limit}`)
 
@@ -42,6 +44,10 @@ export const usePokemon = () => {
    * @param howMany NUmber
    */
   const getNextRound = (howMany: number = 4) => {
+    if (status.value == GameStatus.Lost) {
+      score.value = 0
+    }
+
     status.value = GameStatus.Playing
     pokemonOptions.value = pokemons.value.slice(0, howMany)
     pokemons.value = pokemons.value.slice(howMany)
@@ -52,12 +58,14 @@ export const usePokemon = () => {
 
     if (hasWon) {
       status.value = GameStatus.Won
-      console.log('won')
+
       confetti({
         particleCount: 300,
         spread: 150,
         origin: { y: 0.6 }
       })
+
+      score.value = score.value + 5
       return
     }
 
@@ -75,6 +83,7 @@ export const usePokemon = () => {
     pokemonOptions,
     isLoading,
     selectedPokemon,
+    score,
 
     // Methods
     getNextRound,
