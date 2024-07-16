@@ -1,5 +1,10 @@
 <template>
-  <div class="flex items-center justify-center flex-wrap min-h-screen p-6">
+  <div class="text-center mt-10">
+    <h1 class="text-3xl font-bold">Anime Character Challenge</h1>
+    <h1 class="text-3xl">Do you want to play?</h1>
+  </div>
+
+  <div class="flex items-center justify-center flex-wrap max-h-screen p-6">
     <CardMenu
       title="Dragon Ball Z"
       description="Experience the thrilling battles and adventures of Dragon Ball Z."

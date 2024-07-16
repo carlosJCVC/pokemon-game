@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/dragon-ball',
     name: 'dbz',
-    component: () => import('@/modules/dbz/pages/DbzGame.vue')
+    component: () => import('@/modules/dbz/views/DbzGame.vue')
   },
   {
     path: '/pokemon',

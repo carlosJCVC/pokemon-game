@@ -9,6 +9,7 @@ export const useDbzCharacter = () => {
   const status = ref<GameStatus>(GameStatus.Playing)
   const characters = ref<Character[]>([])
   const characterOptions = ref<Character[]>([])
+  const score = ref(0)
 
   const selectedCharacter = computed(() => {
     if (characterOptions.value.length === 0) return undefined
@@ -40,6 +41,10 @@ export const useDbzCharacter = () => {
    * @param howMany NUmber
    */
   const getNextRound = (howMany: number = 4) => {
+    if (status.value == GameStatus.Lost) {
+      score.value = 0
+    }
+
     status.value = GameStatus.Playing
     characterOptions.value = characters.value.slice(0, howMany)
     characters.value = characters.value.slice(howMany)
@@ -56,6 +61,8 @@ export const useDbzCharacter = () => {
         spread: 150,
         origin: { y: 0.6 }
       })
+
+      score.value = score.value + 5
       return
     }
 
@@ -73,6 +80,7 @@ export const useDbzCharacter = () => {
     characterOptions,
     isLoading,
     selectedCharacter,
+    score,
 
     // Methods
     getNextRound,
