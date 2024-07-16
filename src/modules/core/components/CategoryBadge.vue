@@ -1,6 +1,9 @@
 <template>
   <span
-    :class="['inline-block text-white rounded-full px-2 py-1 text-sm font-semibold', bgcolor]"
+    :class="[
+      'inline-block text-white rounded-full px-2 py-1 text-sm font-semibold cursor-pointer',
+      bgcolor
+    ]"
     >{{ title }}</span
   >
 </template>
