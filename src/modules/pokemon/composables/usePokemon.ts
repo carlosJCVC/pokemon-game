@@ -1,6 +1,6 @@
 import { computed, onBeforeMount, onMounted, ref } from 'vue'
 import confetti from 'canvas-confetti'
-import { GameStatus } from '../enums/game-status'
+import { GameStatus } from '../../core/enums/game-status'
 import { pokemonApi } from '../api/pokemonApi'
 import type { PokemonListResponse } from '../interfaces/PokemonListResponse'
 import type { Pokemon } from '../interfaces/Pokemon'

@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import PokemonOptions from '../components/PokemonOptions.vue'
 import { usePokemon } from '../composables/usePokemon'
-import { GameStatus } from '../enums/game-status'
+import { GameStatus } from '../../core/enums/game-status'
 import PokemonPicture from './../components/PokemonPicture.vue'
 
 const { selectedPokemon, status, isLoading, pokemonOptions: options, checkAnswer } = usePokemon()
