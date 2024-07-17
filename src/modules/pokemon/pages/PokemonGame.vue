@@ -4,6 +4,15 @@
       <h1 class="pt-4 text-3xl font-extrabold">Pokemon Game</h1>
     </div>
 
+    <div class="flex justify-center md:hidden">
+      <div class="flex flex-col justify-center items-center bg-white w-14 h-14 rounded-full">
+        <div class="font-extrabold">
+          {{ score }}
+        </div>
+        <small>points</small>
+      </div>
+    </div>
+
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2">
         <section
@@ -14,7 +23,7 @@
           <h3 class="animate-pulse">Loading pokemons</h3>
         </section>
 
-        <section class="flex flex-col justify-center items-center h-screen">
+        <section class="flex flex-col md:justify-center items-center h-screen">
           <h1 class="text-3xl">Who's that Pokemon?</h1>
           <div v-if="status !== GameStatus.Playing" class="flex justify-center items-center">
             <h6 class="text-xl capitalize font-extrabold">

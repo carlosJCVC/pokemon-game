@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center mt-10">
+  <div class="text-center mt-10 px-2">
     <h1 class="text-3xl font-bold">Anime Character Challenge</h1>
     <h1 class="text-3xl">Do you want to play?</h1>
   </div>

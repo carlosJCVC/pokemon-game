@@ -1,10 +1,10 @@
 <template>
-  <section class="flex flex-wrap mt-5">
-    <div v-for="{ name, id } in options" :key="id" class="w-full md:w-1/2 p-2">
+  <section class="grid grid-cols-2 gap-4">
+    <div v-for="{ name, id } in options" :key="id" class="w-full flex justify-center">
       <button
         @click="$emit('selectedOption', id)"
         :class="[
-          'capitalize w-full',
+          'capitalize w-full ',
           {
             correct: id === correctAnswerId && disableOption,
             incorrect: id !== correctAnswerId && disableOption

@@ -4,6 +4,15 @@
       <h1 class="pt-4 text-3xl font-extrabold">Dragon Ball Game</h1>
     </div>
 
+    <div class="flex justify-center md:hidden">
+      <div class="flex flex-col justify-center items-center bg-white w-14 h-14 rounded-full">
+        <div class="font-extrabold">
+          {{ score }}
+        </div>
+        <small>points</small>
+      </div>
+    </div>
+
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2">
         <section
@@ -14,7 +23,7 @@
           <h3 class="animate-pulse">Loading Dragon ball characters</h3>
         </section>
 
-        <section class="flex flex-col justify-center items-center h-screen">
+        <section class="flex flex-col md:justify-center items-center h-screen">
           <h1 class="text-3xl">Who's That Character?</h1>
           <div v-if="status !== GameStatus.Playing" class="flex justify-center items-center">
             <h6 class="text-xl capitalize font-extrabold">
@@ -47,7 +56,7 @@
         </section>
       </div>
 
-      <div class="w-full md:w-1/2">
+      <div class="w-full md:w-1/2 hidden lg:block">
         <CardScore :score="score" />
       </div>
     </div>
@@ -58,8 +67,8 @@
 import { GameStatus } from '@/modules/core/enums/game-status'
 import { useDbzCharacter } from '../composables/useDbzCharacter'
 import CharacterPicture from './../../core/components/CharacterPicture.vue'
-import CardScore from './../../core/components/CardScore.vue'
 import AnswerOptions from '@/modules/core/components/AnswerOptions.vue'
+import CardScore from '@/modules/core/components/CardScore.vue'
 
 const {
   isLoading,

@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 interface Props {
-  imageUrl: string
+  imageUrl?: string
   showCharacter: boolean
 }
 

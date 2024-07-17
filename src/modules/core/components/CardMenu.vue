@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative max-w-sm rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 mx-2"
+    class="relative max-w-sm rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 mx-2 my-2"
   >
     <img class="w-full h-80 object-cover" :src="bgImage" alt="Game Image" />
     <div
